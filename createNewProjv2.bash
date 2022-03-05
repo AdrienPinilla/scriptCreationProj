@@ -15,39 +15,107 @@ echo "#                 html / CSS / JS / PHP                       #"
 echo "#                                                             #"
 echo "###############################################################"
 echo
-read -p "         Voulez-vous créer un nouveau projet ? <y/n> : " confirm
+
+confirm=o
 
 
+while  [ $confirm != 'y' ] &&  [ $confirm != 'Y' ] && [ $confirm != 'n' ] && [ $confirm != 'N' ]
+do
+    read -p "         Voulez-vous créer un nouveau projet ? <y/n> : " confirm
+    echo
+
+    if [ $confirm != 'y' ] &&  [ $confirm != 'Y' ] && [ $confirm != 'n' ] && [ $confirm != 'N' ]
+    then
+        echo "###############################################################"
+        echo "#                                                             #"
+        echo "#            Merci d'entrer une commande valide               #"
+        echo "#                                                             #"
+        echo "###############################################################"
+        echo
+    fi
+done
 
 
-if [ $confirm == 'y' ]
+if [ $confirm == 'y' ] || [ $confirm == 'Y' ]
 then
 
     echo
     echo "###############################################################"
     echo 
-    read -p "         Voulez-vous créer un dossier PHP ? <y/n> : " phpChoix
-    echo
+
+    phpChoix=o
+
+    while  [ $phpChoix != 'y' ] &&  [ $phpChoix != 'Y' ] && [ $phpChoix != 'n' ] && [ $phpChoix != 'N' ]
+    do
+        read -p "         Voulez-vous créer un dossier PHP ? <y/n> : " phpChoix
+        echo
+
+        if [ $phpChoix != 'y' ] &&  [ $phpChoix != 'Y' ] && [ $phpChoix != 'n' ] && [ $phpChoix != 'N' ]
+        then
+        echo "###############################################################"
+        echo "#                                                             #"
+        echo "#            Merci d'entrer une commande valide               #"
+        echo "#                                                             #"
+        echo "###############################################################"
+        echo
+        fi
+    done 
+
+
     echo "###############################################################"
     echo 
+
+    jsChoix=o
+
+    while  [ $jsChoix != 'y' ] &&  [ $jsChoix != 'Y' ] && [ $jsChoix != 'n' ] && [ $jsChoix != 'N' ]
+    do
     read -p "         Voulez-vous créer un dossier JS ? <y/n> : " jsChoix
     echo
+
+        if [ $jsChoix != 'y' ] &&  [ $jsChoix != 'Y' ] && [ $jsChoix != 'n' ] && [ $jsChoix != 'N' ]
+        then
+        echo "###############################################################"
+        echo "#                                                             #"
+        echo "#            Merci d'entrer une commande valide               #"
+        echo "#                                                             #"
+        echo "###############################################################"
+        echo
+        fi
+    done 
+
+
     echo "###############################################################"
     echo 
+
+    choixReset=o
+
+    while  [ $choixReset != 'y' ] &&  [ $choixReset != 'Y' ] && [ $choixReset != 'n' ] && [ $choixReset != 'N' ]
+    do   
     read -p "         Voulez-vous inserer un reset css ? <y/n> : " choixReset
     echo
+
+        if [ $choixReset != 'y' ] &&  [ $choixReset != 'Y' ] && [ $choixReset != 'n' ] && [ $choixReset != 'N' ]
+        then
+        echo "###############################################################"
+        echo "#                                                             #"
+        echo "#            Merci d'entrer une commande valide               #"
+        echo "#                                                             #"
+        echo "###############################################################"
+        echo
+        fi
+    done 
 
 
 
 #--------------------------Création ou non du dossier PHP-------------------------
-    if [ $phpChoix == 'y' ]
+    if [ $phpChoix == 'y' ] || [ $phpChoix == 'Y' ]
     then
         mkdir php
         touch php/main.php
     fi
 
 #--------------------------Création ou non du dossier JS-------------------------
-    if [ $jsChoix == 'y' ]
+    if [ $jsChoix == 'y' ] || [ $jsChoix == 'Y' ]
     then
         mkdir js
         touch js/main.js
@@ -68,7 +136,7 @@ then
 
 
 #--------------------------Création du reset ou non plus lien dans le html-------------------------
-    if [ $choixReset == 'y' ]
+    if [ $choixReset == 'y' ] || [ $choixReset == 'Y' ]
     then
 
     touch css/reset.css
